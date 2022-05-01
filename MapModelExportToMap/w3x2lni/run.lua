@@ -69,8 +69,10 @@ end
 local path = arg[1]
 local cut_num = arg[2]
 if path == nil or cut_num == nil then
+	print(path,cut_num)
     return
 end
+print("run_lua....",path,cut_num)
 local unit_obj = [[
 [%s]
 _parent = "opeo"
@@ -101,5 +103,5 @@ file_save(path .. "\\map\\table\\unit.ini", table.concat(txt))
 for ii = 1, cut_num do
     fs.remove(fs.path(path .. "\\map\\map\\war3mapUnits.doo"))
     fs.rename(fs.path((path .. "\\map\\map\\war3mapUnits.doo%d"):format(ii)),fs.path(path .. "\\map\\map\\war3mapUnits.doo"))
-    os.execute((fs.path(path) / string.format([[w3x2lni\w2l.exe obj %s %s]], path .. "/map", path .. ("/map%d.w3x"):format(ii))):string())
+    os.execute("\"\""..(fs.path(path) /"w3x2lni\\w2l.exe\"".." obj \""..path .. "/map\" \""..path.."/map"..ii..".w3x".."\"\""):string())
 end

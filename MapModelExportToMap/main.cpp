@@ -6,13 +6,13 @@
 int main()
 {
 
-	std::string in_war3_path = (fs::current_path().string() +"\\in.w3x");
+	std::string in_war3_path = (fs::current_path().string() + "\\in.w3x");
 	std::string root = fs::current_path().string();
 	std::string res = root + "\\map\\resource\\";
 	std::string map = root + "\\map\\map\\";
 	std::string doo = map + "war3mapUnits.doo";
 	std::string w3x2lni = root + "\\w3x2lni";
-	int max_num = 400; //1200
+	int max_num = 200; //1200
 
 	std::time_t t = std::time(0);  // t is an integer type
 	std::cout << "Current working directory: " << fs::current_path() << '\n';
@@ -178,7 +178,7 @@ int main()
 	}
 
 	printf("\n");
-	system((w3x2lni + "\\bin\\w3x2lni-lua.exe " + w3x2lni + "\\run.lua " + root + " " + std::to_string(cut_num)).c_str());
+	system(("\"\"" + w3x2lni + "\\bin\\w3x2lni-lua.exe\" \"" + w3x2lni + "\\run.lua\" \"" + root + "\"\" " + std::to_string(cut_num)).c_str());
 	printf("\n");
 	system("pause");
 	return 0;
